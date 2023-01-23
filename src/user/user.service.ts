@@ -17,8 +17,12 @@ export class UserService {
     return this.usersRepository.find();
   }
 
+  async findOne(email: string): Promise<User | undefined> {
+    return this.usersRepository.findOne({ where: { email } });
+  }
+
   async create(dto: CreateUserDto): Promise<User> {
-    // check uniqueness of username/email
+    // check uniqueness of email
     const { email, password, firstName, lastName } = dto;
     const qb = this.usersRepository
       .createQueryBuilder('user')
@@ -27,7 +31,7 @@ export class UserService {
     const user = await qb.getOne();
 
     if (user) {
-      const errors = { username: 'email must be unique.' };
+      const errors = { email: 'email must be unique.' };
       throw new HttpException(
         { message: 'Input data validation failed', errors },
         HttpStatus.BAD_REQUEST,
@@ -44,7 +48,7 @@ export class UserService {
     const errors = await validate(newUser);
     if (errors.length > 0) {
       console.log(errors);
-      const _errors = { username: 'Userinput is not valid.' };
+      const _errors = { email: 'Userinput is not valid.' };
       throw new HttpException(
         { message: 'Input data validation failed', _errors },
         HttpStatus.BAD_REQUEST,

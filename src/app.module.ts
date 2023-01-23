@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { UserModule } from './user/user.module';
+import { AuthModule } from './auth/auth.module';
 
 const {
   POSTGRES_DB: database,
@@ -24,7 +25,7 @@ const DbModule = TypeOrmModule.forRoot({
 });
 
 @Module({
-  imports: [DbModule, UserModule],
+  imports: [DbModule, UserModule, AuthModule],
   controllers: [],
   providers: [],
 })

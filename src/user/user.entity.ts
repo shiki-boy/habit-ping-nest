@@ -8,7 +8,7 @@ const saltRounds = 10;
 
 @Entity('user')
 export class User extends AbstractBaseEntity {
-  @Column()
+  @Column({ unique: true })
   @IsEmail()
   email: string;
 
