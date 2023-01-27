@@ -16,6 +16,11 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
   }
 
   async validate(payload: any) {
-    return { userId: payload.sub, username: payload.username };
+    // payload comes when we use the `sign` func. of jwtService
+
+    // can use user id to check if it is revoked or not or blacklisted
+
+    // or give more user info
+    return { userId: payload.sub, email: payload.email };
   }
 }

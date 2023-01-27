@@ -1,8 +1,9 @@
 import * as bcrypt from 'bcrypt';
 import { IsEmail } from 'class-validator';
-import { Entity, Column, BeforeInsert } from 'typeorm';
+import { Entity, Column, BeforeInsert, OneToMany } from 'typeorm';
 
 import { AbstractBaseEntity } from 'src/utils/abstract.entity';
+import { Goal } from './../goal/goal.entity';
 
 const saltRounds = 10;
 
@@ -28,4 +29,7 @@ export class User extends AbstractBaseEntity {
 
   @Column({ default: true })
   isActive: boolean;
+
+  @OneToMany(() => Goal, (goal) => goal.user)
+  goals: Goal[];
 }

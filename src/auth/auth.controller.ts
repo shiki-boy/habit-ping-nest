@@ -11,6 +11,7 @@ export class AuthController {
   @UseGuards(LocalAuthGuard)
   @Post('login')
   async login(@Request() req) {
+    // passport local applied the user in request.user
     return this.authService.login(req.user);
   }
 

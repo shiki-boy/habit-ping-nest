@@ -45,6 +45,16 @@ $ pnpm run start:dev
 $ pnpm run start:prod
 ```
 
+## Migrations
+
+```bash
+# create migrations
+$ pnpm migration:create src/db/migrations/migration-name -d dist/db/dataSource.js
+
+# run migrations
+$ pnpm migration:run
+```
+
 ## Test
 
 ```bash
