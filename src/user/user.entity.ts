@@ -3,7 +3,7 @@ import { IsEmail } from 'class-validator';
 import { Entity, Column, BeforeInsert, OneToMany } from 'typeorm';
 
 import { AbstractBaseEntity } from 'src/utils/abstract.entity';
-import { Goal } from './../goal/goal.entity';
+import { Goal } from '../goal/goal.entity';
 
 const saltRounds = 10;
 

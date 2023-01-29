@@ -1,7 +1,7 @@
 import { Entity, Column, ManyToOne } from 'typeorm';
 
 import { AbstractBaseEntity } from 'src/utils/abstract.entity';
-import { User } from './../user/user.entity';
+import { User } from '../user/user.entity';
 import { Habit } from './habit.entity';
 
 export enum StatusChoices {
