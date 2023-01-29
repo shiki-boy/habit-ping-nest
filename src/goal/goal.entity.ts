@@ -20,7 +20,7 @@ export class Goal extends AbstractBaseEntity {
   points: number;
 
   @Column({ type: 'interval' })
-  duration?: Date;
+  duration: Date;
 
   @Column({ type: 'timestamp' })
   date: Date;

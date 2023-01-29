@@ -51,6 +51,9 @@ $ pnpm run start:prod
 # create migrations
 $ pnpm migration:create src/db/migrations/migration-name -d dist/db/dataSource.js
 
+# create empty migration
+$ pnpm run typeorm migration:create src/db/migrations/migration-name
+
 # run migrations
 $ pnpm migration:run
 ```

@@ -9,5 +9,11 @@ export class CreateGoalDto {
   readonly description: string;
 
   @IsNotEmpty()
-  readonly habitId: string;
+  readonly duration: Date;
+
+  @IsNotEmpty()
+  readonly date: Date;
+
+  @IsNotEmpty()
+  readonly habitUid: string;
 }

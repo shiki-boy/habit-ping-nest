@@ -3,11 +3,12 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { GoalController } from './goal.controller';
 import { GoalService } from './goal.service';
-import { Goal } from './goal';
+import { Goal } from './goal.entity';
+import { Habit } from './habit.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Goal])],
+  imports: [TypeOrmModule.forFeature([Goal, Habit])],
   controllers: [GoalController],
-  providers: [Goal, GoalService],
+  providers: [GoalService],
 })
 export class GoalModule {}
